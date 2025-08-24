@@ -1,5 +1,3 @@
-Here is a professional README.md for the `tinyinput` project:
-
 **TinyInput**
 ================
 
@@ -34,11 +32,13 @@ To use TinyInput, simply import the library and call the `input()` function:
 import { input } from 'tinyinput';
 
 async function main(){
-    const userInput = await input('Please enter your name: ');
+    const userInput = await input('Please enter your name: ', opt);
     console.log(`Hello, ${userInput}!`);
 }
 
 main()
+
+//opt can be "int" | "float" | "string"
 ```
 
 **Technologies**
