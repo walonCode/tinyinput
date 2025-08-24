@@ -33,8 +33,12 @@ To use TinyInput, simply import the library and call the `input()` function:
 ```ts
 import { input } from 'tinyinput';
 
-const userInput = await input('Please enter your name: ');
-console.log(`Hello, ${userInput}!`);
+async function main(){
+    const userInput = await input('Please enter your name: ');
+    console.log(`Hello, ${userInput}!`);
+}
+
+main()
 ```
 
 **Technologies**
