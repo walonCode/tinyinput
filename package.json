@@ -9,7 +9,7 @@
     "build": "tsup"
   },
   "repository": {
-    "url": "https//github.com/walonCode/tinyinput/"
+    "url": "https://github.com/walonCode/tinyinput/"
   },
   "keywords": [
     "input",
