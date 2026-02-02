@@ -1,1 +1,1 @@
-export type Opt = "int" | "float" | "string"
+export type Opt = "int" | "float" | "string" | "password" | "email";
