@@ -1,26 +1,30 @@
 {
-  "name": "tinyinput",
-  "version": "0.0.1",
-  "description": "A simple library that takes user input the same way it is done in python.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "scripts": {
-    "build": "tsup"
-  },
-  "repository": {
-    "url": "https://github.com/walonCode/tinyinput/"
-  },
-  "keywords": [
-    "input",
-    "stdin",
-    "stdout"
-  ],
-  "author": "Mohamed Lamin Walon-Jalloh",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^24.3.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.2"
-  }
+	"name": "tinyinput",
+	"version": "0.0.2",
+	"description": "A simple library that takes user input the same way it is done in python.",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsup",
+		"test": "vitest run",
+		"lint-format": "biome check --write --unsafe"
+	},
+	"repository": {
+		"url": "https://github.com/walonCode/tinyinput/"
+	},
+	"keywords": [
+		"input",
+		"stdin",
+		"stdout"
+	],
+	"author": "Mohamed Lamin Walon-Jalloh",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "2.3.13",
+		"@types/node": "^24.3.0",
+		"tsup": "^8.5.0",
+		"typescript": "^5.9.2",
+		"vitest": "^4.0.18"
+	}
 }

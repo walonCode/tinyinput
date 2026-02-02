@@ -27,19 +27,72 @@ npm install tinyinput
 **Usage**
 -----
 
-To use TinyInput, simply import the library and call the `input()` function:
+To use TinyInput, import the library and call the `input()` function. By default, it returns a string and ensures the input is not empty.
+
 ```ts
 import { input } from 'tinyinput';
 
-async function main(){
-    const userInput = await input('Please enter your name: ', opt);
-    console.log(`Hello, ${userInput}!`);
+async function main() {
+    // Basic usage (returns string)
+    const name = await input('What is your name? ');
+    console.log(`Hello, ${name}!`);
+
+    // Integer input (retries until valid)
+    const age = await input('How old are you? ', 'int');
+    console.log(`Next year you will be ${age + 1}`);
+
+    // Float input (retries until valid)
+    const price = await input('Enter price: ', 'float');
+    console.log(`Total with tax: ${(price * 1.15).toFixed(2)}`);
+
+    // Password input (hides typing)
+    const password = await input('Enter password: ', 'password');
+    console.log('Securely received password');
+
+    // Email validation
+    const email = await input("Enter email: ", "email");
+    console.log(`Updating record for ${email}`);
+
+    // Confirmation (returns boolean)
+    const save = await confirm("Save changes?");
+    if (save) {
+        console.log("Saved!");
+    }
+
+    // Selection (returns the string choice)
+    const color = await select("Pick a color", ["Red", "Green", "Blue"]);
+    console.log(`You chose ${color}`);
 }
 
-main()
-
-//opt can be "int" | "float" | "string"
+main();
 ```
+
+**API Reference**
+-----------
+
+### `input(question, opt)`
+
+The main function for reading input. Returns a `Promise<string | number>`.
+
+*   **question** (string): The prompt to show.
+*   **opt** (string, optional):
+    *   `"string"` (default): Returns trimmed, non-empty string.
+    *   `"int"`: Parses and returns a valid integer.
+    *   `"float"`: Parses and returns a valid number.
+    *   `"password"`: Hides input while typing.
+    *   `"email"`: Validates email format.
+
+### `confirm(question, defaultValue?)`
+
+Simplified helper for yes/no questions. Returns a `Promise<boolean>`.
+
+*   **defaultValue** (boolean, optional): Defaults to `true`. Used if the user just presses Enter.
+
+### `select(question, choices)`
+
+Displays a numbered list of choices. Returns a `Promise<string>`.
+
+*   **choices** (string[]): A non-empty array of options to choose from.
 
 **Technologies**
 -------------
